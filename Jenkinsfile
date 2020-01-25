@@ -4,6 +4,12 @@ pipeline {
     stages {
         stage('hello'){
 
+             when { 
+                not { 
+                    branch 'development' 
+                }
+            }
+
             agent {
                 docker 'alpine:latest'
             }
@@ -13,5 +19,7 @@ pipeline {
             }
         }
     }
+
+    
 
 }
