@@ -13,7 +13,7 @@ pipeline {
             }
 
             agent {
-                docker 'alpine:latest'
+                docker 'gotechnies/alpine-ssh'
             }
 
             steps {
