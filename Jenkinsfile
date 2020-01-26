@@ -31,7 +31,7 @@ pipeline {
 
             steps {
                 sshagent(credentials : ['629476ac-5086-4fd9-b793-d6296863c745']) {
-                    sh "apk add openssh"
+                    sh "apk add --no-cache openssh"
                     sh 'ssh -t -t -o StrictHostKeyChecking=no root@165.22.58.224 "pwd"'
                 }
             }
@@ -39,8 +39,12 @@ pipeline {
     }
 
     post {
-        always {
-            deleteDir()
+        success {
+             cleanWs disableDeferredWipeout: true, deleteDirs: true 
+        }
+
+        failure {
+             cleanWs disableDeferredWipeout: true, deleteDirs: true 
         }
     }
 
