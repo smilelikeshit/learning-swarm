@@ -24,14 +24,14 @@ pipeline {
             agent {
                 docker {
                       image 'alpine:latest'
-                      args '-v /tmp/tmp_passwd:/etc/passwd'
+                      //args '-v /tmp/tmp_passwd:/etc/passwd'
                 } 
             }
 
             steps {
                 sshagent(credentials : ['629476ac-5086-4fd9-b793-d6296863c745']) {
                     sh "apk add ssh"
-                    sh 'ssh -t -t root@165.22.58.224 -o StrictHostKeyChecking=no "echo pwd"'
+                    sh 'ssh -t -t -v root@165.22.58.224 -o StrictHostKeyChecking=no "echo pwd"'
                 }
             }
         }
