@@ -24,15 +24,6 @@ pipeline {
                 }
             }
         }
-
-         post {
-                always {
-                    deleteDir()
-                }
-
-            }
-
-
     }
 
 }
