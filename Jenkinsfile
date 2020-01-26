@@ -25,6 +25,7 @@ pipeline {
                 docker {
                       image 'alpine:latest'
                       //args '-v /tmp/tmp_passwd:/etc/passwd'
+                      args '-u root'
                 } 
             }
 
