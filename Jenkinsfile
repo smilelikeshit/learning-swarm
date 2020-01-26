@@ -10,7 +10,7 @@ pipeline {
         stage('Create passwd') {
             agent any
             steps {
-                sh """echo \$(getent passwd \$USER) > /tmp/tmp_passwd
+                sh """touch /tmp/tmp_passwd && echo \$(getent passwd \$USER) > /tmp/tmp_passwd
                 """
             }
         }
