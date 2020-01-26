@@ -6,6 +6,14 @@ pipeline {
     }
 
     stages {
+
+        stage('Create passwd') {
+            steps {
+                sh """echo \$(getent passwd \$USER) > /tmp/tmp_passwd
+                """
+            }
+        }
+
         stage('hello'){
 
             when { 
@@ -14,7 +22,7 @@ pipeline {
 
             agent {
                 docker 'gotechnies/alpine-ssh'
-                //args '-u root'
+                args '-v /tmp/tmp_passwd:/etc/passwd'
             }
 
             steps {
