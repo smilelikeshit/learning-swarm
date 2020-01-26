@@ -14,17 +14,14 @@ pipeline {
 
             agent {
                 docker 'gotechnies/alpine-ssh'
+                //args '-u root'
             }
 
             steps {
                 sshagent(credentials : ['629476ac-5086-4fd9-b793-d6296863c745']) {
                     sh "echo pwd"
-                    sh 'ssh -t -t uroot@165.22.58.224 -o StrictHostKeyChecking=no "echo pwd"'
+                    sh 'ssh -t -t root@165.22.58.224 -o StrictHostKeyChecking=no "echo pwd"'
                 }
-
-
-
-
             }
         }
     }
