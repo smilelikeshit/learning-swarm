@@ -22,8 +22,10 @@ pipeline {
             }
 
             agent {
-                docker 'gotechnies/alpine-ssh'
-                args '-v /tmp/tmp_passwd:/etc/passwd'
+                docker {
+                      image 'gotechnies/alpine-ssh'
+                      args '-v /tmp/tmp_passwd:/etc/passwd'
+                } 
             }
 
             steps {
