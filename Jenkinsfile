@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sshagent(credentials : ['629476ac-5086-4fd9-b793-d6296863c745']) {
                     sh "apk add openssh"
-                    sh 'ssh -t -t  root@165.22.58.224 -o StrictHostKeyChecking=no "echo pwd"'
+                    sh 'ssh -t -t -o StrictHostKeyChecking=no root@165.22.58.224 "pwd"'
                 }
             }
         }
@@ -40,7 +40,7 @@ pipeline {
 
     post {
         always {
-            cleanWS()
+            deleteDir()
         }
     }
 
