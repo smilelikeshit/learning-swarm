@@ -8,6 +8,7 @@ pipeline {
     stages {
 
         stage('Create passwd') {
+            agent any
             steps {
                 sh """echo \$(getent passwd \$USER) > /tmp/tmp_passwd
                 """
