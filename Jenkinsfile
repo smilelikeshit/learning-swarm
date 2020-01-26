@@ -14,7 +14,7 @@ pipeline {
 
             agent {
                 docker 'gotechnies/alpine-ssh'
-                //args '-u root'
+                args '-u root'
             }
 
             steps {
