@@ -9,9 +9,7 @@ pipeline {
         stage('hello'){
 
              when { 
-                {
-                    branch 'master'
-                    }
+                branch 'master'    
             }
 
             agent {
