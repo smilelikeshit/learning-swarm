@@ -24,15 +24,15 @@ pipeline {
                 }
             }
         }
+
+         post {
+                always {
+                    deleteDir()
+                }
+
+            }
+
+
     }
-
-    post {
-        always {
-            deleteDir()
-        }
-
-    }
-
-
 
 }
