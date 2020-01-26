@@ -8,13 +8,13 @@ pipeline {
     stages {
         stage('hello'){
 
-             when { 
+            when { 
                 branch 'master'    
             }
 
             agent {
                 docker 'gotechnies/alpine-ssh'
-                args '-u root'
+                //args '-u root'
             }
 
             steps {
